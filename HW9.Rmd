@@ -1,0 +1,27 @@
+---
+title: "HW9"
+author: "Nathan Catalano"
+date: "2023-04-10"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+av <- read.csv("https://raw.githubusercontent.com/fivethirtyeight/data/master/avengers/avengers.csv", stringsAsFactors = FALSE)
+av
+```
+```{r}
+library(tidyverse)
+av0= av %>% filter(Name.Alias !="")
+
+av1 = av0 %>% gather(key = time, value= death, c(11,13,15,17,19)) %>% select(Name.Alias, time, death) %>% mutate(time= parse_number(time))
+av2=av0 %>% gather(key=time, value= return, c(12,14,16,18,20)) %>% select(Name.Alias, time, return) %>% mutate(time=parse_number(time))
+```
+
+```{r}
+av.neat=left_join(av1, av2, by= c("Name.Alias","time"))
+```
+
