@@ -25,3 +25,13 @@ av2=av0 %>% gather(key=time, value= return, c(12,14,16,18,20)) %>% select(Name.A
 av.neat=left_join(av1, av2, by= c("Name.Alias","time"))
 ```
 
+##Nathan's fact check
+
+The article states the following quote "The MVP of the Earth-616 Marvel Universe Avengers has to be Jocasta — an android based on Janet van Dyne and built by Ultron — who has been destroyed five times and then recovered five times." 
+
+
+This claim is backed up by the data as Jocasta has died 5 times and returned 5 times.
+```{r}
+av.neat %>% filter(Name.Alias=="Jocasta")
+```
+
