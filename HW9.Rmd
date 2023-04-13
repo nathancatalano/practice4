@@ -1,6 +1,6 @@
 ---
 title: "HW9"
-author: "Nathan Catalano"
+author: "Nathan Catalano & Brett Simmons"
 date: "2023-04-10"
 output: html_document
 ---
